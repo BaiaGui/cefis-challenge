@@ -1,6 +1,6 @@
 export function SidebarMenu(){
     return (
-        <nav className="h-screen w-72 bg-stone-900">
+        <nav className="h-screen w-72 bg-stone-900 fixed">
             <div className="border-b border-white/20 px-5 py-10 text-white">
                 <p className="font-bold">PAINEL DE CONTROLE</p>
                 <p className="text-sm">Usuário: Carlos Teixeira</p>

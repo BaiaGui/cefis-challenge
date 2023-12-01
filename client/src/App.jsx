@@ -1,11 +1,13 @@
 import './App.css'
-import { USerPanel } from './assets/UserPanel'
+import { CoursePanel } from './CoursePanel'
+import { USerPanel } from './UserPanel'
 
 function App() {
 
 
   return (
-    <USerPanel/>
+
+    <CoursePanel/>
   )
 }
 
