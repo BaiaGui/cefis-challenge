@@ -5,6 +5,7 @@ import './index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { CoursePanel } from './routes/CoursePanel.jsx'
 import { UserPanel } from './routes/UserPanel.jsx'
+import {QuestionPanel} from './routes/QuestionPanel.jsx'
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
     path: "coursepanel",
     element: <CoursePanel/>
   },
+  {
+    path: "questionpanel",
+    element: <QuestionPanel/>
+  }
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
