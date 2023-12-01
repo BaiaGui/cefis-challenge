@@ -7,8 +7,6 @@ export function SidebarMenu(){
                 <p className="font-bold">PAINEL DE CONTROLE</p>
                 <p className="text-sm">Usuário: Carlos Teixeira</p>
             </div>
-            {/* <a href="#" className="w-full block px-5 py-5 border-b border-white/20 text-white hover:bg-white/10">Painel Usuários</a>
-            <a href="#" className="w-full block px-5 py-5 border-b border-white/20 text-white hover:bg-white/10">Painel Cursos</a> */}
             <Link to="/userpanel" className="w-full block px-5 py-5 border-b border-white/20 text-white hover:bg-white/10">Painel Usuários</Link>
             <Link to="/coursepanel" className="w-full block px-5 py-5 border-b border-white/20 text-white hover:bg-white/10">Painel Cursos</Link>
             <Link to="/questionpanel" className="w-full block px-5 py-5 border-b border-white/20 text-white hover:bg-white/10">Painel Perguntas</Link>

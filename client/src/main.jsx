@@ -6,6 +6,8 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { CoursePanel } from './routes/CoursePanel.jsx'
 import { UserPanel } from './routes/UserPanel.jsx'
 import {QuestionPanel} from './routes/QuestionPanel.jsx'
+import { AnswerQuestionModal } from './routes/AnswerQuestionModal.jsx'
+import { ModalTemplate } from './components/ModalTemplate.jsx'
 
 const router = createBrowserRouter([
   {
@@ -22,7 +24,13 @@ const router = createBrowserRouter([
   },
   {
     path: "questionpanel",
-    element: <QuestionPanel/>
+    element: <QuestionPanel/>,
+    children: [
+      {
+        path: "question/:questionId",
+        element: <AnswerQuestionModal/>,
+      }
+    ]
   }
 ])
 
