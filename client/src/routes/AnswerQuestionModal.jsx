@@ -1,18 +1,35 @@
+import { useNavigate } from "react-router-dom";
 import { FilledButton, FramedButton } from "../components/ButtonStyles";
 import { ModalTemplate } from "../components/ModalTemplate";
+import { useState } from "react";
 
-export function AnswerQuestionModal(){
+
+export function AnswerQuestionModal({questionData}){
+
+    const [answerText, setAnswerText] = useState('');
+
+    const answer = {answerText}
+
+    function handleSubmit(e){
+        e.preventDefault();
+        console.log('enviado')
+        // fetch('/endpoint', {
+        //     method: 'POST',
+        //     headers: {"Content-Type":"application/json"},
+        //     body: JSON.stringify(answer)
+        // })
+    }
+
     return (
-        <ModalTemplate>
-            <form action="" className="flex flex-col w-full h-full">
+        <ModalTemplate >
+            <form onSubmit={handleSubmit} className="flex flex-col w-full h-full">
                 <div className="mb-10 ">
-                    <p className="text-lg font-bold">Essa é a pergunta?</p>
-                    <p className="text-slate-500 text-sm">Carlos Pereira - Curso de fazer algo</p>
+                    <p className="text-lg font-bold">{/*questionData.questionText*/}</p>
+                    <p className="text-slate-500 text-sm">{/*`${questionData.studentName} - ${questionData.courseName}`*/}</p>
                 </div>
                 <label htmlFor="answerText" className="font-bold">Resposta</label>
-                <textarea name="" id="answerText"  placeholder="Escrever resposta..." className="w-full h-full p-3 border resize-none"></textarea>
+                <textarea onChange={(e)=> setAnswerText(e.target.value)} value={answerText} name="" id="answerText"  placeholder="Escrever resposta..." className="w-full h-full p-3 border resize-none" required></textarea>
                 <div className="mt-10 flex justify-end gap-2">
-                <FramedButton>Cancelar</FramedButton>
                 <FilledButton>Responder</FilledButton>
                 </div>
             </form>
