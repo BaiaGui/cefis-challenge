@@ -9,7 +9,7 @@ export function ModalTemplate({children}){
     
 
     return (
-        <div className="absolute z-50 w-screen h-screen bg-black/80  flex items-center justify-center" onClick={dismissModal}>
+        <div className="absolute z-50 w-screen h-screen bg-black/80  flex flex-col items-center justify-center" onClick={dismissModal}>
             <aside className="bg-white w-2/4 h-2/3 p-14">
                 {children}
             </aside>

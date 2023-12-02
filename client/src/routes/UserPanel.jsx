@@ -1,5 +1,5 @@
 import { SidebarMenu } from "../components/SidebarMenu.jsx";
-import { FilledButton } from "../components/FilledButton.jsx";
+import { FilledButton } from "../components/ButtonStyles.jsx";
 import { Title } from "../components/Title.jsx";
 
 export function UserPanel(){
