@@ -15,12 +15,10 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App/>,
-    children: [
-      {
-        path: "course/:courseId",
-        element: <CourseDetailPage/>
-      },
-    ]
+  },
+  {
+    path: "course/:courseId",
+    element: <CourseDetailPage/>
   },
   {
     path: "userpanel",
