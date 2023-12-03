@@ -1,6 +1,6 @@
 export function FilledButton({children, onClick}){
     return (
-        <button onClick={onClick} className="w-36 bg-cyan-700 text-sm text-white font-bold py-4 hover:bg-cyan-600 hover:scale-105">{children}</button>
+        <button onClick={onClick} className={`w-36 bg-cyan-700 text-sm text-white font-bold py-4 hover:bg-cyan-600 hover:scale-105`}>{children}</button>
     )
 }
 

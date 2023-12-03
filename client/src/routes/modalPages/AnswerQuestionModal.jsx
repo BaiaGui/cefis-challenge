@@ -1,6 +1,6 @@
-import { useNavigate } from "react-router-dom";
-import { FilledButton, FramedButton } from "../components/ButtonStyles";
-import { ModalTemplate } from "../components/ModalTemplate";
+
+import { FilledButton, FramedButton } from "../../components/ButtonStyles";
+import { ModalTemplate } from "../../components/ModalTemplate";
 import { useState } from "react";
 
 
@@ -8,11 +8,13 @@ export function AnswerQuestionModal({questionData}){
 
     const [answerText, setAnswerText] = useState('');
 
-    const answer = {answerText}
-
     function handleSubmit(e){
         e.preventDefault();
         console.log('enviado')
+
+        
+        const answer = {answerText}
+
         // fetch('/endpoint', {
         //     method: 'POST',
         //     headers: {"Content-Type":"application/json"},

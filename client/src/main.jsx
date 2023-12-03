@@ -6,8 +6,9 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { CoursePanel } from './routes/CoursePanel.jsx'
 import { UserPanel } from './routes/UserPanel.jsx'
 import {QuestionPanel} from './routes/QuestionPanel.jsx'
-import { AnswerQuestionModal } from './routes/AnswerQuestionModal.jsx'
-import { ModalTemplate } from './components/ModalTemplate.jsx'
+import { AnswerQuestionModal } from './routes/modalPages/AnswerQuestionModal.jsx'
+import { AddUserModal } from './routes/modalPages/AddUserModal.jsx'
+import { AddCourseModal } from './routes/modalPages/AddCourseModal.jsx'
 
 const router = createBrowserRouter([
   {
@@ -16,11 +17,31 @@ const router = createBrowserRouter([
   },
   {
     path: "userpanel",
-    element: <UserPanel/>
+    element: <UserPanel/>,
+    children: [
+      {
+        path: "newuser",
+        element: <AddUserModal/>,
+      },
+      {
+        path: "edituser/:userId",
+        element:<AddUserModal editMode={true}/>,
+      },
+    ]
   },
   {
     path: "coursepanel",
-    element: <CoursePanel/>
+    element: <CoursePanel/>,
+    children: [
+      {
+        path: "newcourse",
+        element: <AddCourseModal/>,
+      },
+      {
+        path: "editcourse/:courseId",
+        element:<AddUserModal editMode={true}/>,
+      },
+    ]
   },
   {
     path: "questionpanel",
