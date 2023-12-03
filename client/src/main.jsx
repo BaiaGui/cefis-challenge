@@ -9,11 +9,18 @@ import {QuestionPanel} from './routes/QuestionPanel.jsx'
 import { AnswerQuestionModal } from './routes/modalPages/AnswerQuestionModal.jsx'
 import { AddUserModal } from './routes/modalPages/AddUserModal.jsx'
 import { AddCourseModal } from './routes/modalPages/AddCourseModal.jsx'
+import { CourseDetailPage } from './routes/CourseDetailPage.jsx'
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App/>
+    element: <App/>,
+    children: [
+      {
+        path: "course/:courseId",
+        element: <CourseDetailPage/>
+      },
+    ]
   },
   {
     path: "userpanel",

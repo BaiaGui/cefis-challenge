@@ -6,12 +6,18 @@ import { UserPanel } from './routes/UserPanel'
 import { AddUserModal } from './routes/modalPages/AddUserModal'
 import { NavBarMenu } from './components/navBarMenu'
 import { HomePage } from './routes/HomePage'
+import { Outlet } from 'react-router-dom'
 
 function App() {
 
 
   return (
+    <div className='w-screen h-screen'>
+    <Outlet/>
+    <NavBarMenu/>
     <HomePage/>
+
+    </div>
   )
 }
 
