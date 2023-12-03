@@ -5,12 +5,13 @@ import { CoursePanel } from './routes/CoursePanel'
 import { UserPanel } from './routes/UserPanel'
 import { AddUserModal } from './routes/modalPages/AddUserModal'
 import { NavBarMenu } from './components/navBarMenu'
+import { HomePage } from './routes/HomePage'
 
 function App() {
 
 
   return (
-    <NavBarMenu/>
+    <HomePage/>
   )
 }
 
