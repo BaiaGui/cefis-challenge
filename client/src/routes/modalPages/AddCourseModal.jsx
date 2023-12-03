@@ -30,7 +30,7 @@ export function AddCourseModal({editMode}) {
 
     return (
         <ModalTemplate >
-            <p className="font-bold uppercase text-lg">Cadastrar Curso</p>
+            <p className="font-bold uppercase text-lg">{editMode?'Editar Curso':'Cadastrar Curso'}</p>
             <form onSubmit={handleSubmit} className="flex flex-col w-full h-full">
                 <InputText id="courseName" label="Curso" placeholder="Nome do curso..."/>
                 <InputText id="courseDuration" label="Duração" placeholder="Qtd. horas"/>
@@ -39,7 +39,7 @@ export function AddCourseModal({editMode}) {
                     <option value="">Selecionar</option>
                 </InputSelection>
                 <div className="flex justify-end items-end h-full">
-                    <FilledButton>Cadastrar</FilledButton>
+                    <FilledButton>Confirmar</FilledButton>
                 </div>
             </form>
         </ModalTemplate>

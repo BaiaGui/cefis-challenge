@@ -39,7 +39,7 @@ const router = createBrowserRouter([
       },
       {
         path: "editcourse/:courseId",
-        element:<AddUserModal editMode={true}/>,
+        element:<AddCourseModal editMode={true}/>,
       },
     ]
   },

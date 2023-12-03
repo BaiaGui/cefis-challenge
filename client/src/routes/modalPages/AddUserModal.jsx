@@ -29,7 +29,7 @@ export function AddUserModal({editMode}) {
 
     return (
         <ModalTemplate >
-            <p className="font-bold uppercase text-lg">Cadastrar Usuário</p>
+            <p className="font-bold uppercase text-lg">{editMode?'Editar Usuário':'Cadastrar Usuário'}</p>
             <form onSubmit={handleSubmit} className="flex flex-col w-full h-full">
                 <InputText id="userName" label="Nome" placeholder="Digitar nome..."/>
                 <InputSelection id="userType" label="Tipo">
@@ -37,7 +37,7 @@ export function AddUserModal({editMode}) {
                     <option value="">Aluno</option>
                 </InputSelection>
                 <div className="flex justify-end items-end h-full">
-                    <FilledButton>Cadastrar</FilledButton>
+                    <FilledButton>Confirmar</FilledButton>
                 </div>
             </form>
         </ModalTemplate>
