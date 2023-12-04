@@ -1,7 +1,7 @@
 import { SidebarMenu } from "../components/SidebarMenu.jsx";
 import { Title } from "../components/Title.jsx";
 import { QuestionBtn } from "../components/QuestionBtn.jsx";
-import { Link, Outlet } from "react-router-dom"
+import { Outlet } from "react-router-dom"
 
 
 export function QuestionPanel(){

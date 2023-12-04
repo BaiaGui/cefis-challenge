@@ -1,9 +1,8 @@
 import { FilledButton } from '../components/ButtonStyles.jsx';
-import { InputText, InputTextNoLabel } from '../components/InputComponents.jsx';
+import { InputTextNoLabel } from '../components/InputComponents.jsx';
 import { QuestionBtn } from '../components/QuestionBtn.jsx';
 import { Title } from '../components/Title.jsx'
 import { NavBarMenu } from '../components/navBarMenu.jsx';
-import { SidebarMenu } from "../components/SidebarMenu.jsx";
 
 export function CourseDetailPage() {
     return (
@@ -19,17 +18,6 @@ export function CourseDetailPage() {
                     <FilledButton>Enviar</FilledButton>
                 </form>
                 <div className="mt-5">
-                    <QuestionBtn studentName="Carlos Eduardo Pereira" courseName="Gestão de Projetos na Prática">Como fazer isso?</QuestionBtn>
-                    <QuestionBtn studentName="Carlos Eduardo Pereira" courseName="Gestão de Projetos na Prática">Como fazer isso?</QuestionBtn>
-                    <QuestionBtn studentName="Carlos Eduardo Pereira" courseName="Gestão de Projetos na Prática">Como fazer isso?</QuestionBtn>
-                    <QuestionBtn studentName="Carlos Eduardo Pereira" courseName="Gestão de Projetos na Prática">Como fazer isso?</QuestionBtn>
-                    <QuestionBtn studentName="Carlos Eduardo Pereira" courseName="Gestão de Projetos na Prática">Como fazer isso?</QuestionBtn>
-                    <QuestionBtn studentName="Carlos Eduardo Pereira" courseName="Gestão de Projetos na Prática">Como fazer isso?</QuestionBtn>
-                    <QuestionBtn studentName="Carlos Eduardo Pereira" courseName="Gestão de Projetos na Prática">Como fazer isso?</QuestionBtn>
-                    <QuestionBtn studentName="Carlos Eduardo Pereira" courseName="Gestão de Projetos na Prática">Como fazer isso?</QuestionBtn>
-                    <QuestionBtn studentName="Carlos Eduardo Pereira" courseName="Gestão de Projetos na Prática">Como fazer isso?</QuestionBtn>
-                    <QuestionBtn studentName="Carlos Eduardo Pereira" courseName="Gestão de Projetos na Prática">Como fazer isso?</QuestionBtn>
-                    <QuestionBtn studentName="Carlos Eduardo Pereira" courseName="Gestão de Projetos na Prática">Como fazer isso?</QuestionBtn>
                     <QuestionBtn studentName="Carlos Eduardo Pereira" courseName="Gestão de Projetos na Prática">Como fazer isso?</QuestionBtn>
                 </div>
 
