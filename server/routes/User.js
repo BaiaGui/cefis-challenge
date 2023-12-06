@@ -4,7 +4,7 @@ const UserController = require('../controllers/UserController');
 
 
 
-router.get("/", async(req, res)=> {
+router.get('/', async(req, res)=> {
     let users;
     let type = req.query.type;
     try {
@@ -17,7 +17,19 @@ router.get("/", async(req, res)=> {
     res.status(200).json(users);
 })
 
-router.post("/", async(req, res)=> {
+router.get('/:id', async(req, res)=>{
+    let id = req.params.id;
+    let user;
+    try {
+        user = await UserController.getUserById(id);
+    } catch (e) {
+        res.status(500).send(e);
+        console.log(e);
+    }
+    res.status(201).json(user);
+})
+
+router.post('/', async(req, res)=> {
     try {
         const {name, type} = req.body;
         await UserController.createUser({
@@ -32,12 +44,16 @@ router.post("/", async(req, res)=> {
    
 })
 
-router.put("/:id", (req, res)=> {
-    res.send("Oie");
+
+
+
+
+router.put('/:id', (req, res)=> {
+    res.send('Oie');
 })
 
-router.delete("/", (req, res)=> {
-    res.send("Oie");
+router.delete('/', (req, res)=> {
+    res.send('Oie');
 })
 
 module.exports = router;

@@ -6,9 +6,7 @@ class UserController{
     //POST
     async createUser(userData){
         const userId = randomUUID();
-        await sql`INSERT INTO userdata (id, name, type) VALUES (${userId}, ${userData.name}, ${userData.type})`
-        
-
+        await sql`INSERT INTO userdata (id, name, type) VALUES (${userId}, ${userData.name}, ${userData.type})`;
     }
 
     //GET
@@ -24,20 +22,11 @@ class UserController{
         return users;
     }
 
-    // getAllTeachers(){
+    async getUserById(id){
+        let user;
+        user = await sql`SELECT * FROM userdata WHERE id = ${id}`;
 
-    // }
-
-    // getAllStudents(){
-
-    // }
-
-    getTeacherById(id){
-
-    }
-
-    getStudentById(id){
-
+        return user;
     }
 
     //PUT
