@@ -30,14 +30,14 @@ class UserController{
     }
 
     //PUT
-    updateUserById(id){
-
+    async updateUserById(id, newData){
+        await sql`UPDATE userdata SET name=${newData.name}, type=${newData.type} WHERE id = ${id}`
     }
 
 
     //DELETE
-    deleteUserById(id){
-
+    async deleteUserById(id){
+        await sql`DELETE FROM userdata WHERE id = ${id}`;
     }
 
 }

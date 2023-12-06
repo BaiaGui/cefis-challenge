@@ -44,16 +44,26 @@ router.post('/', async(req, res)=> {
    
 })
 
-
-
-
-
-router.put('/:id', (req, res)=> {
-    res.send('Oie');
+router.put('/:id', async (req, res)=> {
+    const id = req.params.id;
+    console.log(id);
+    try {
+        await UserController.updateUserById(id, req.body);
+    } catch (e) {
+        res.status(500).json({});
+        console.log(e);
+    }
+    res.status(200).json({})
 })
 
-router.delete('/', (req, res)=> {
-    res.send('Oie');
+router.delete('/:id', async(req, res)=> {
+    const id = req.params.id;
+    try {
+        await UserController.deleteUserById(id);
+    } catch (error) {
+        
+    }
+    res.status(200).json({});
 })
 
 module.exports = router;
