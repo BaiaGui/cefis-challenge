@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const AnswerController = require('../controllers/AnswerController');
 
 router.get("/", (req, res)=> {
     res.send("Answer");

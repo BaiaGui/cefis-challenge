@@ -1,0 +1,29 @@
+
+CREATE TABLE UserData (
+    id VARCHAR(36) PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    type VARCHAR(50) CHECK (type IN ('teacher', 'student')) NOT NULL
+);
+
+
+CREATE TABLE Course (
+    id VARCHAR(36) PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    duration INTEGER NOT NULL,
+    teacher_id VARCHAR REFERENCES UserData(id) ON DELETE CASCADE
+);
+
+
+CREATE TABLE Question (
+    id VARCHAR(36) PRIMARY KEY,
+    course_id VARCHAR REFERENCES Course(id) ON DELETE CASCADE,
+    student_id VARCHAR REFERENCES UserData(id) ON DELETE CASCADE,
+    text TEXT NOT NULL
+);
+
+
+CREATE TABLE Answer (
+    id VARCHAR(36) PRIMARY KEY,
+    text TEXT NOT NULL,
+    question_id VARCHAR REFERENCES Question(id) ON DELETE CASCADE
+);
