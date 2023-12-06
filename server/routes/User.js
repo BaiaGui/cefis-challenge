@@ -4,24 +4,31 @@ const UserController = require('../controllers/UserController');
 
 
 
-router.get("/", (req, res)=> {
-    res.send("User");
+router.get("/", async(req, res)=> {
+    let users;
+    let type = req.query.type;
+    try {
+        users = await UserController.getAllUsers(type);
+    } catch (e) {
+        res.status(500).send(e);
+        console.log(e);
+    }
+
+    res.status(200).json(users);
 })
 
 router.post("/", async(req, res)=> {
     try {
         const {name, type} = req.body;
-        //console.log(`name: ${name}, type:${type}`);
-        console.log(req.body);
         await UserController.createUser({
             name,
             type,
         });
-        res.send("Oie"); 
     } catch (e) {
         res.status(500).send(e);
         console.log(e);
     }
+    res.status(201).json({});
    
 })
 

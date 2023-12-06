@@ -12,11 +12,11 @@ class UserController{
     }
 
     //GET
-    async getAllUsers(search){
+    async getAllUsers(filter){
         let users;
 
-        if(search){
-           users = await sql`SELECT * FROM userdata WHERE type ilike "${'%' + search + '%'    }"`; 
+        if(filter){
+           users = await sql`SELECT * FROM userdata WHERE type ILIKE ${'%' + filter + '%'}`;
         }else{
             users = await sql`SELECT * FROM userdata`;
         }
