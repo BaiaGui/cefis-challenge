@@ -1,30 +1,34 @@
+const sql = require('../db');
+const { randomUUID } = require('node:crypto');
+
 class CourseController{
     //POST
-    createCourse(courseData){
-
+    async createCourse(courseData){
+        const id = randomUUID();
+        await sql`INSERT INTO course (id, title, duration, teacher_id) VALUES (${id}, ${courseData.title}, ${courseData.duration}, ${courseData.teacherId}) `;
     }
 
     //GET
-    getAllCourses(){
-
+    async getAllCourses(){
+        let courses;
+        courses = await sql`SELECT * FROM course`;
+        return courses;
     }
 
-    getCourseById(id){
-
-    }
-
-    getCoursesByTeacher(teacherId){
-
+    async getCourseById(id){
+        let courses;
+        courses = await sql`SELECT * FROM course WHERE id = ${id}`;
+        return courses;
     }
 
     //PUT
-    updateCourseById(id){
-
+    async updateCourseById(id, newData){
+        await sql`UPDATE course SET title = ${newData.title}, duration = ${newData.duration}, teacher_id = ${newData.teacherId} WHERE id = ${id}`;
     }
 
     //DELETE
-    deleteCourseById(id){
-
+    async deleteCourseById(id){
+        await sql`DELETE FROM course WHERE id = ${id}`
     }
 }
 

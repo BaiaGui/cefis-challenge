@@ -1,5 +1,5 @@
 const sql = require('../db');
-const { randomUUID } = require('crypto');
+const { randomUUID } = require('node:crypto');
 
 class UserController{
 

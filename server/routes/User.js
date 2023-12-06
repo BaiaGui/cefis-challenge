@@ -6,7 +6,7 @@ const UserController = require('../controllers/UserController');
 
 router.get('/', async(req, res)=> {
     let users;
-    let type = req.query.type;
+    const type = req.query.type;
     try {
         users = await UserController.getAllUsers(type);
     } catch (e) {
@@ -36,19 +36,26 @@ router.post('/', async(req, res)=> {
             name,
             type,
         });
+
+        res.status(201).json({});
+        
     } catch (e) {
         res.status(500).send(e);
         console.log(e);
     }
-    res.status(201).json({});
+
    
 })
 
 router.put('/:id', async (req, res)=> {
-    const id = req.params.id;
-    console.log(id);
     try {
-        await UserController.updateUserById(id, req.body);
+        const id = req.params.id;
+        const {name, type} = req.body
+        await UserController.updateUserById(id, 
+            {
+                name, 
+                type,
+            });
     } catch (e) {
         res.status(500).json({});
         console.log(e);
