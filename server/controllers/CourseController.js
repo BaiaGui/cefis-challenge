@@ -28,7 +28,10 @@ class CourseController{
 
     //DELETE
     async deleteCourseById(id){
-        await sql`DELETE FROM course WHERE id = ${id}`
+        if(id.length == 36)
+            await sql`DELETE FROM course WHERE id = ${id}`
+        else
+            throw new Error("Invalid ID");
     }
 }
 

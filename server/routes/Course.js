@@ -8,7 +8,7 @@ router.get('/', async (req, res)=> {
         courses = await CourseController.getAllCourses();
         res.status(200).json(courses);
     } catch (error) {
-        res.status(500).json({});
+        res.status(500).json({message: 'Error getting courses'});
         console.log(error);
     }
 
@@ -19,11 +19,12 @@ router.get('/:id', async(req, res)=>{
     try {
         const id = req.params.id;
         course = await CourseController.getCourseById(id);
+        res.status(200).json(course);
     } catch (error) {
-        res.status(500).json({});
+        res.status(500).json({message: 'Error getting course data'});
         console.log(error);
     }
-    res.status(200).json(course);
+
 })
 
 router.post('/', async(req, res)=> {
@@ -34,11 +35,12 @@ router.post('/', async(req, res)=> {
             duration,
             teacherId,
         });
+        res.status(200).json({message: 'Course registered successfully'});
     } catch (error) {
-        res.status(500).json({});
+        res.status(500).json({message: 'Course creation failed'});
         console.log(error);
     }
-    res.status(200).json({});
+
 })
 
 router.put('/:id', async(req, res)=> {
@@ -50,20 +52,20 @@ router.put('/:id', async(req, res)=> {
             duration,
             teacherId,
         })
+        res.status(200).json({message: 'Course updated successfully'});
     } catch (error) {
-        res.status(500).json({});
+        res.status(500).json({message: 'Course update failed'});
         console.log(error);
     }
-    res.status(200).json({});
 })
 
 router.delete('/:id', async(req, res)=> {
     try {
         const id = req.params.id;
         await CourseController.deleteCourseById(id);
-        res.status(200).json({});
+        res.status(200).json({message: 'Course deleted successfully'});
     } catch (error) {
-        res.status(500).json({});
+        res.status(500).json({message: `Course delete failed: ${error.message}`});
         console.log(error);
     }
 
