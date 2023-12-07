@@ -7,7 +7,6 @@ router.get("/course/:courseId", async(req, res)=> {
         const courseId = req.params.courseId;
         let questions;
         questions = await QuestionController.getQuestionsByCourseId(courseId);
-        console.log(questions);
         res.status(200).json(questions);
 
     } catch (error) {

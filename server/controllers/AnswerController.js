@@ -1,11 +1,17 @@
+const {randomUUID} = require('node:crypto');
+const sql = require('../db');
+
 class AnswerController{
     //POST
-    createAnswer(answerData){
-
+    async createAnswer(answerData){
+        const id = randomUUID();
+        await sql`INSERT INTO answer (id, question_id, text) VALUES (${id}, ${answerData.questionId}, ${answerData.text})`;
     }
     //GET
-    getAnswerByQuestionId(questionId){
-
+    async getAnswerByQuestionId(questionId){
+        let answer;
+        answer = await sql`SELECT * FROM answer WHERE question_id = ${questionId}`;
+        return answer;
     }
 }
 
