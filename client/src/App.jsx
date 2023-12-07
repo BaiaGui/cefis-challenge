@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import './App.css'
 import { NavBarMenu } from './components/navBarMenu'
 import { HomePage } from './routes/HomePage'
@@ -6,11 +7,11 @@ import { LoginPage } from './routes/LoginPage';
 
 function App() {
 
-  let userName = sessionStorage.getItem("userName");
-  if(userName){
+  const [loggedUser, setLoggedUser] = useState(null);
+  const userId = sessionStorage.getItem("loggedUser");
+
+  if(userId || loggedUser){
     return (
-
-
       <div className='w-screen h-screen'>
       <NavBarMenu/>
       <HomePage/>
@@ -20,7 +21,7 @@ function App() {
   }else {
     return (
       <div className='w-screen h-screen'>
-        <LoginPage/>
+        <LoginPage setLoggedUser={setLoggedUser}/>
       </div>
     );
   }

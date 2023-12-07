@@ -2,81 +2,35 @@ import { Title } from '../components/Title.jsx'
 import { NavBarMenu } from '../components/navBarMenu';
 import { QuestionCard } from '../components/QuestionCard.jsx';
 import './HomePage.css'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export function HomePage() {
 
-    const [coursesData, setCoursesData] = useState([
-        {
-            id: "12345467",
-            title: "Curso de como fazer algo",
-            duration: 50,
-            teacher_id: "1fgfegegrtretf",
-        },
-        {
-            id: "12345467",
-            title: "Curso de como fazer algo",
-            duration: 50,
-            teacher_id: "1fgfegegrtretf",
-        },
-        {
-            id: "12345467",
-            title: "Curso de como fazer algo",
-            duration: 50,
-            teacher_id: "1fgfegegrtretf",
-        },
-        {
-            id: "12345467",
-            title: "Curso de como fazer algo",
-            duration: 50,
-            teacher_id: "1fgfegegrtretf",
-        },
-        {
-            id: "12345467",
-            title: "Curso de como fazer algo",
-            duration: 50,
-            teacher_id: "1fgfegegrtretf",
-        },
-        {
-            id: "12345467",
-            title: "Curso de como fazer algo",
-            duration: 50,
-            teacher_id: "1fgfegegrtretf",
-        },
-        {
-            id: "12345467",
-            title: "Curso",
-            duration: 50,
-            teacher_id: "1fgfegegrtretf",
-        },
-        {
-            id: "12345467",
-            title: "Curso",
-            duration: 50,
-            teacher_id: "1fgfegegrtretf",
-        },
-        {
-            id: "12345467",
-            title: "Curso ",
-            duration: 50,
-            teacher_id: "1fgfegegrtretf",
-        },
-    ])
+    const [coursesData, setCoursesData] = useState(null)
     const [currentPage, setCurrentPage] = useState(1);
-    const [cardsPerPage, setCardsPerPage] = useState(6);
+    const cardsPerPage = 6
 
 
-    const lastCardIndex = currentPage * cardsPerPage;
-    const firstCardIndex = lastCardIndex - cardsPerPage;
-    const currentPageCards = coursesData.slice(firstCardIndex, lastCardIndex);
+    useEffect(()=>{
+        fetch('http://localhost:3000/course')
+        .then(res =>{
+            return res.json()
+        })
+        .then(data=>{
+            setCoursesData(data);
+        })
+    },[])
+
+    
+    
 
     return (
 
         <section className='h-full pt-28 flex flex-col items-center'>
             <Title>Nossos Cursos</Title>
             <div className='w-full flex flex-col justify-between h-full mt-16'>
-            <CardList data={currentPageCards} />
-            <PaginationNav totalCourses={coursesData.length} cardsPerPage={cardsPerPage} setCurrentPage={setCurrentPage} currentPage={currentPage}/>
+            {coursesData && <CardList data={coursesData} currentPage={currentPage} cardsPerPage={cardsPerPage} />}
+            {coursesData && <PaginationNav totalCourses={coursesData.length} cardsPerPage={cardsPerPage} setCurrentPage={setCurrentPage} currentPage={currentPage}/>}
             </div>
 
 
@@ -86,10 +40,12 @@ export function HomePage() {
 }
 
 
-function CardList({ data }) {
+function CardList({ data, currentPage, cardsPerPage}) {
+    const lastCardIndex = currentPage * cardsPerPage;
+    const firstCardIndex = lastCardIndex - cardsPerPage;
+    const currentPageCards = data.slice(firstCardIndex, lastCardIndex);
 
-    //get teacher's name by id
-    const cards = data.map(course => <QuestionCard key={course.id} courseId={course.id} courseTitle={course.title} courseTeacher={course.teacher_id} courseDuration={course.duration} />)
+    const cards = data.map(course => <QuestionCard key={course.id} courseId={course.id} courseTitle={course.title} courseTeacher={course.teacher_name} courseDuration={course.duration} />)
 
     return (
         <nav className='gridContainer justify-center px-5 md:px-20 lg:px-80'>
