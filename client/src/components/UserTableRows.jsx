@@ -2,10 +2,18 @@ import trashIcon  from "../assets/trash.svg"
 import pencilIcon  from "../assets/pencil.svg"
 import { Link } from "react-router-dom";
 
-export function UserTableRows({userData}){
+export function UserTableRows({userData, setUpdateState, updateState}){
 
     async function handleClick(){
-        
+        const deleteResponse = await fetch(`http://localhost:3000/user/${userData.id}`, {
+            method: 'DELETE',
+            headers: {"Content-Type":"application/json"},
+        })
+        if (deleteResponse.ok) {
+            setUpdateState(!updateState)
+          }else{
+            throw new Error('Error submitting the form');
+          }
     };
 
     return (

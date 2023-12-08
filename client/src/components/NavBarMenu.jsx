@@ -4,8 +4,7 @@ import { Link } from "react-router-dom";
 export function NavBarMenu(){
     const [userData, setUserData] = useState();
     const userId = sessionStorage.getItem('loggedUser');
-    
-    //const userName = JSON.parse(userData).name;
+    let userType;
 
     useEffect(()=>{
         fetch(`http://localhost:3000/user/${userId}`)
@@ -15,8 +14,10 @@ export function NavBarMenu(){
         })
     },[])
 
-    if(userData)
+    if(userData){
         sessionStorage.setItem("userData", JSON.stringify(userData))
+        userType = userData.type;
+    }
     
 
     return (
@@ -27,7 +28,7 @@ export function NavBarMenu(){
             </div>
             <div className="flex gap-5 text-stone-500">
                 <Link to="/"><p className="hover:text-black">Cursos</p></Link>
-                <Link to="/userpanel"><p className="hover:text-black">Painel Admin</p></Link>
+                {(userType == "teacher")?<Link to="/userpanel"><p className="hover:text-black">Painel Admin</p></Link>:null}
             </div>
         </nav>
     );

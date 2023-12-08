@@ -45,7 +45,7 @@ export function LoginPage({setLoggedUser}){
                     </InputSelection>
 
                     <InputSelection label={"Nome"} value={selectedUser} className="w-full" onChange={e => handleSelectionChange(e.target.value)}>
-                    {users && <RenderUserList users={users} />}
+                    {users?<RenderUserList users={users} />: <option value="null">Carregando...</option>}
                     </InputSelection>
                 </div>
 
@@ -64,7 +64,7 @@ function RenderUserList({users}){
 
     return (
         <>
-        <option value="null"></option>
+        <option value="null">Selecionar</option>
         {userList}
         </>
     );

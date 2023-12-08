@@ -9,7 +9,7 @@ export function ModalTemplate({children}){
     
 
     return (
-        <div className=" w-screen h-screen absolute flex items-center justify-center">
+        <div className=" w-screen h-screen fixed flex items-center justify-center">
             <div className=" w-full h-full bg-black/80  flex flex-col items-center justify-center" onClick={dismissModal}>
         
             </div>

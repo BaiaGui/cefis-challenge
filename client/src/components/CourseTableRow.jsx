@@ -4,9 +4,17 @@ import { Link } from "react-router-dom";
 
 export function CourseTableRow({courseData}){
 
-    function handleClick(){
-
-    }
+    async function handleClick(){
+        const deleteResponse = await fetch(`http://localhost:3000/course/${courseData.id}`, {
+            method: 'DELETE',
+            headers: {"Content-Type":"application/json"},
+        })
+        if (deleteResponse.ok) {
+            window.location.reload();
+          }else{
+            throw new Error('Error submitting the form');
+          }
+    };
 
     return (
         <tr className=" border-b border-x border-slate-300 hover:text-stone-900">

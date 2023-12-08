@@ -1,5 +1,5 @@
 
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { FilledButton, FramedButton } from "../../components/ButtonStyles";
 import { ModalTemplate } from "../../components/ModalTemplate";
 import { useState, useEffect } from "react";
@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 
 export function AnswerQuestionModal(){
 
+    const  navigate = useNavigate();
     const {questionId} = useParams();
     const [questionData, setQuestionData] = useState();
     const [answerText, setAnswerText] = useState();
@@ -20,23 +21,31 @@ export function AnswerQuestionModal(){
         fetchData();
     },[])
 
-    function handleSubmit(e){
+    async function handleSubmit(e){
         e.preventDefault();
-        console.log('enviado')
 
+        // const form = e.target;
+        // const formData = new FormData(form);
+        // const formJson = Object.fromEntries(formData.entries());
+        // console.log(answerText)
         
-        const answer = {answerText}
+        const postResponse = await fetch('http://localhost:3000/answer', {
+          method: 'POST',
+          headers:{
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            questionId,
+            text: answerText
+          }),
+        })
+        if (postResponse.ok) {
+            navigate(-1);
+        }else{
+            throw new Error('Error submitting the form');
+        }
 
-        // fetch('/endpoint', {
-        //     method: 'POST',
-        //     headers: {"Content-Type":"application/json"},
-        //     body: JSON.stringify(answer)
-        // })
-    }
-
-    if(questionData){
-        console.log(questionData)
-    }
+      }
 
     return (
         <ModalTemplate >

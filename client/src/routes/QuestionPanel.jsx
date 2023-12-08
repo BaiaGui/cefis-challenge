@@ -22,7 +22,9 @@ export function QuestionPanel(){
     if(questionsData){
         console.log(questionsData)
         questionList = questionsData.map((question)=><QuestionBtn key={question.id} questionId={question.id} courseName={question.coursetitle} studentMode={false}>{question.text}</QuestionBtn>)
+        
     }
+
 
     return(
         <section className="flex">
@@ -31,6 +33,7 @@ export function QuestionPanel(){
                     <Title>Perguntas para o professor</Title>
                     <div className="mt-5">
                         {questionsData?questionList:<p className="text-black/50">Carregando...</p>}
+                        {questionsData && (questionList.length == 0) && <p  className="text-black/50">Sem perguntas</p>}
                     </div>
                     
 

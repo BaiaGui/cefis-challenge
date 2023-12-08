@@ -8,7 +8,9 @@ import { UserTableRows } from "../components/UserTableRows.jsx";
 export function UserPanel(){
 
     const [usersData, setUsersData] = useState();
+    const [updateState, setUpdateState] = useState(false);
     let usersList;
+    console.log(`state:${updateState}`)
 
     useEffect(()=>{
         const fetchData = async() => {
@@ -17,10 +19,10 @@ export function UserPanel(){
             setUsersData(usersData);
         }
         fetchData();
-    },[])
+    },[updateState])
     
     if(usersData){
-        usersList = usersData.map((user)=> <UserTableRows key={user.id} userData={user}/>)
+        usersList = usersData.map((user)=> <UserTableRows key={user.id} userData={user} setUpdateState={setUpdateState} updateSatate={updateState}/>)
     }
 
 
