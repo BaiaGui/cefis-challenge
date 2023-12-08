@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const path = require('path');
+//const path = require('path');
 var cors = require('cors');
 
 app.use(cors());
@@ -8,7 +8,7 @@ app.use(express.json());
 const port = process.env.PORT || 3000;
 
 
-app.use(express.static(path.join(__dirname, '../client/dist/')));
+//app.use(express.static(path.join(__dirname, '../client/dist/')));
 app.listen(port, () => {
     console.log("Server Listening on PORT:", port);
   });
@@ -23,5 +23,5 @@ app.use('/answer', answerRoute);
 app.use('/course', courseRoute);
 
 app.get('/', (req, res)=>{
-  res.sendFile(path.join(__dirname, '../client/dist/index.html'));
+  res.json({message: "Welcome"})
 })
