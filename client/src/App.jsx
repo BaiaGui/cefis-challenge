@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './App.css'
-import { NavBarMenu } from './components/navBarMenu'
+import { NavBarMenu } from './components/NavBarMenu'
 import { HomePage } from './routes/HomePage'
 import { LoginPage } from './routes/LoginPage';
 import { useEffect } from 'react';
