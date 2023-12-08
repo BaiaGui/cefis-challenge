@@ -2,10 +2,28 @@ import { SidebarMenu } from "../components/SidebarMenu.jsx";
 import { FilledButton } from "../components/ButtonStyles.jsx";
 import { Title } from "../components/Title.jsx";
 import { Link, Outlet } from "react-router-dom";
-import trashIcon  from "../assets/trash.svg"
-import pencilIcon  from "../assets/pencil.svg"
+import { useEffect, useState } from "react";
+import { UserTableRows } from "../components/UserTableRows.jsx";
 
 export function UserPanel(){
+
+    const [usersData, setUsersData] = useState();
+    let usersList;
+
+    useEffect(()=>{
+        const fetchData = async() => {
+            const usersResponse = await fetch('http://localhost:3000/user');
+            const usersData = await usersResponse.json();
+            setUsersData(usersData);
+        }
+        fetchData();
+    },[])
+    
+    if(usersData){
+        usersList = usersData.map((user)=> <UserTableRows key={user.id} userData={user}/>)
+    }
+
+
     return(
         <section className="flex">
             <SidebarMenu/>
@@ -28,26 +46,12 @@ export function UserPanel(){
                     </tr>
                     </thead>
                     <tbody>
-                    <tr className=" border-b border-x border-slate-300 hover:text-stone-900">
-                        <td className="py-6 px-5">12345</td>
-                        <td>Carlos Eduardo Teixeira</td>
-                        <td>Aluno</td>
-                        <td>
-                            <div className="w-full h-full flex items-center justify-center gap-5">
-                            <Link to=""><img src={trashIcon} alt="" /></Link>
-                            <Link to="edituser/1"><img src={pencilIcon} alt="" /></Link>
-                            </div>
-
-                        </td>
-                    </tr>
+                        {usersList}
                     </tbody>
-                
+
                 </table>
             </main>
             <Outlet/>
         </section>
     );
 }
-
-
-

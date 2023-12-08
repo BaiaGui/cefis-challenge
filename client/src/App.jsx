@@ -3,6 +3,8 @@ import './App.css'
 import { NavBarMenu } from './components/navBarMenu'
 import { HomePage } from './routes/HomePage'
 import { LoginPage } from './routes/LoginPage';
+import { useEffect } from 'react';
+import { Outlet } from 'react-router-dom';
 
 
 function App() {
@@ -10,7 +12,10 @@ function App() {
   const [loggedUser, setLoggedUser] = useState(null);
   const userId = sessionStorage.getItem("loggedUser");
 
+
+
   if(userId || loggedUser){
+  
     return (
       <div className='w-screen h-screen'>
       <NavBarMenu/>

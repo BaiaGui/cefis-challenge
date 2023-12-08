@@ -27,6 +27,7 @@ export function LoginPage({setLoggedUser}){
     const handleSubmit = ()=>{
         sessionStorage.setItem("loggedUser", selectedUser)
         setLoggedUser(true);
+        
     }
     
     

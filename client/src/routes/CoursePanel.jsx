@@ -2,10 +2,26 @@ import { SidebarMenu } from "../components/SidebarMenu.jsx";
 import { FilledButton } from "../components/ButtonStyles.jsx";
 import { Title } from "../components/Title.jsx";
 import { Link, Outlet } from "react-router-dom";
-import trashIcon  from "../assets/trash.svg"
-import pencilIcon  from "../assets/pencil.svg"
+import { useEffect, useState } from "react";
+import { CourseTableRow } from "../components/CourseTableRow.jsx";
 
 export function CoursePanel(){
+
+    let coursesList;
+    const [coursesData, setCoursesData]= useState();
+    useEffect(()=>{
+        const fetchData = async()=>{
+            const coursesResponse = await fetch('http://localhost:3000/course');
+            const coursesData = await coursesResponse.json();
+            setCoursesData(coursesData);
+
+        } 
+        fetchData();
+    },[])
+
+    if(coursesData){
+        coursesList = coursesData.map((course)=> <CourseTableRow key={course.id} courseData={course}/>)
+    }
 
 
     return(
@@ -26,23 +42,10 @@ export function CoursePanel(){
                         <th>Duração</th>
                         <th>Professor</th>
                         <th></th>
-                
                     </tr>
                     </thead>
                     <tbody>
-                    <tr className=" border-b border-x border-slate-300 hover:text-stone-900">
-                        <td className="py-6 px-5">12345</td>
-                        <td>Gestão de projetos na prática</td>
-                        <td>50h</td>
-                        <td>Roberto Carvalho</td>
-                        <td>
-                            <div className="w-full h-full flex items-center justify-center gap-5">
-                            <Link to=""><img src={trashIcon} alt="" /></Link>
-                            <Link to="editcourse/1"><img src={pencilIcon} alt="" /></Link>
-                            </div>
-
-                        </td>
-                    </tr>
+                        {coursesList}
                     </tbody>
                 
                 </table>
@@ -51,6 +54,4 @@ export function CoursePanel(){
         </section>
     );
 }
-
-
 
