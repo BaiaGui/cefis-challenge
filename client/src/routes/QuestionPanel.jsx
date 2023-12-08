@@ -20,7 +20,6 @@ export function QuestionPanel(){
     },[])
 
     if(questionsData){
-        console.log(questionsData)
         questionList = questionsData.map((question)=><QuestionBtn key={question.id} questionId={question.id} courseName={question.coursetitle} studentMode={false}>{question.text}</QuestionBtn>)
         
     }

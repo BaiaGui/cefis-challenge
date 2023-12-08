@@ -10,7 +10,6 @@ export function UserPanel(){
     const [usersData, setUsersData] = useState();
     const [updateState, setUpdateState] = useState(false);
     let usersList;
-    console.log(`state:${updateState}`)
 
     useEffect(()=>{
         const fetchData = async() => {

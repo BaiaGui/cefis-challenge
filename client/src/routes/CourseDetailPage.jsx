@@ -62,7 +62,6 @@ export function CourseDetailPage() {
   }
 
   if (courseData) {
-    console.log(courseQuestions)
     return (
       <section className="flex">
         <NavBarMenu />

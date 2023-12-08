@@ -1,4 +1,4 @@
-import { FilledButton, FramedButton } from "../../components/ButtonStyles";
+import { FilledButton } from "../../components/ButtonStyles";
 import { ModalTemplate } from "../../components/ModalTemplate";
 import { useEffect, useState } from "react";
 import { InputSelection, InputText } from "../../components/InputComponents";
@@ -29,7 +29,6 @@ export function AddCourseModal({editMode}) {
         const form = e.target;
         const formData = new FormData(form);
         const formJson = Object.fromEntries(formData.entries());
-        console.log(formJson.courseDuration);
     
         if(editMode){
             const putResponse = await fetch(`https://cefis-challenge.onrender.com/course/${courseId}`, {

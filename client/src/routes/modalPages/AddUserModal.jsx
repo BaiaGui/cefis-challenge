@@ -1,6 +1,5 @@
 import { FilledButton, FramedButton } from "../../components/ButtonStyles";
 import { ModalTemplate } from "../../components/ModalTemplate";
-import { useState } from "react";
 import { InputSelection, InputText } from "../../components/InputComponents";
 import { useNavigate, useParams } from "react-router-dom";
 

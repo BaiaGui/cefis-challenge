@@ -3,8 +3,6 @@ import './App.css'
 import { NavBarMenu } from './components/NavBarMenu'
 import { HomePage } from './routes/HomePage'
 import { LoginPage } from './routes/LoginPage';
-import { useEffect } from 'react';
-import { Outlet } from 'react-router-dom';
 
 
 function App() {

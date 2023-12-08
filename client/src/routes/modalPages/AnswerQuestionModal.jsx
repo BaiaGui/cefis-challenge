@@ -24,11 +24,6 @@ export function AnswerQuestionModal(){
     async function handleSubmit(e){
         e.preventDefault();
 
-        // const form = e.target;
-        // const formData = new FormData(form);
-        // const formJson = Object.fromEntries(formData.entries());
-        // console.log(answerText)
-        
         const postResponse = await fetch('https://cefis-challenge.onrender.com/answer', {
           method: 'POST',
           headers:{
