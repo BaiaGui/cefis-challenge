@@ -3,7 +3,7 @@ import { FilledButton } from '../components/ButtonStyles.jsx';
 import { InputTextNoLabel } from '../components/InputComponents.jsx';
 import { QuestionBtn } from '../components/QuestionBtn.jsx';
 import { Title } from '../components/Title.jsx'
-import { NavBarMenu } from '../components/navBarMenu.jsx';
+import { NavBarMenu } from '../components/NavBarMenu.jsx';
 import { useEffect, useState } from 'react';
 
 export function CourseDetailPage() {
