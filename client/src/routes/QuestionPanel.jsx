@@ -12,7 +12,7 @@ export function QuestionPanel(){
     const [questionsData, setQuestionsData] = useState();
     useEffect(()=>{
         const fetchData = async()=>{
-            const questionResponse = await fetch(`http://localhost:3000/question/teacher/${teacherId}`);
+            const questionResponse = await fetch(`https://cefis-challenge.onrender.com/question/teacher/${teacherId}`);
             const questionsData = await questionResponse.json();
             setQuestionsData(questionsData);
         }

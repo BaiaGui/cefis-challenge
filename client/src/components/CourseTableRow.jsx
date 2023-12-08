@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export function CourseTableRow({courseData}){
 
     async function handleClick(){
-        const deleteResponse = await fetch(`http://localhost:3000/course/${courseData.id}`, {
+        const deleteResponse = await fetch(`https://cefis-challenge.onrender.com/course/${courseData.id}`, {
             method: 'DELETE',
             headers: {"Content-Type":"application/json"},
         })

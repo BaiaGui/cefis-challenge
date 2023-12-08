@@ -14,7 +14,7 @@ export function AnswerQuestionModal(){
 
     useEffect(()=>{
         const fetchData = async()=>{
-            const questionResponse = await fetch(`http://localhost:3000/question/${questionId}`);
+            const questionResponse = await fetch(`https://cefis-challenge.onrender.com/question/${questionId}`);
             const questionData = await questionResponse.json();
             setQuestionData(questionData[0]);
         }
@@ -29,7 +29,7 @@ export function AnswerQuestionModal(){
         // const formJson = Object.fromEntries(formData.entries());
         // console.log(answerText)
         
-        const postResponse = await fetch('http://localhost:3000/answer', {
+        const postResponse = await fetch('https://cefis-challenge.onrender.com/answer', {
           method: 'POST',
           headers:{
             'Content-Type': 'application/json'

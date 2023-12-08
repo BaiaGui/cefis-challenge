@@ -11,7 +11,7 @@ export function LoginPage({setLoggedUser}){
     let userList;
 
     useEffect(()=>{
-        fetch(`http://localhost:3000/user?type=${userType}`)
+        fetch(`https://cefis-challenge.onrender.com/user?type=${userType}`)
         .then(res =>{
             return res.json()
         })

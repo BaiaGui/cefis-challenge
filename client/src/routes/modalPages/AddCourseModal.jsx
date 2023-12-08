@@ -14,7 +14,7 @@ export function AddCourseModal({editMode}) {
 
     useEffect(()=>{
         const fetchData = async ()=>{
-            const getResponse = await fetch('http://localhost:3000/user?type=teacher');
+            const getResponse = await fetch('https://cefis-challenge.onrender.com/user?type=teacher');
             const teachersData = await getResponse.json();
             setTeachersData(teachersData);
         }
@@ -32,7 +32,7 @@ export function AddCourseModal({editMode}) {
         console.log(formJson.courseDuration);
     
         if(editMode){
-            const putResponse = await fetch(`http://localhost:3000/course/${courseId}`, {
+            const putResponse = await fetch(`https://cefis-challenge.onrender.com/course/${courseId}`, {
                 method: 'PUT',
                 headers: {"Content-Type":"application/json"},
                 body: JSON.stringify({
@@ -50,7 +50,7 @@ export function AddCourseModal({editMode}) {
               }
         }
         else{
-                const postResponse = await fetch('http://localhost:3000/course', {
+                const postResponse = await fetch('https://cefis-challenge.onrender.com/course', {
                 method: 'POST',
                 headers: {"Content-Type":"application/json"},
                 body: JSON.stringify({

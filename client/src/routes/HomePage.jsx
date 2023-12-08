@@ -12,7 +12,7 @@ export function HomePage() {
 
 
     useEffect(()=>{
-        fetch('http://localhost:3000/course')
+        fetch('https://cefis-challenge.onrender.com/course')
         .then(res =>{
             return res.json()
         })

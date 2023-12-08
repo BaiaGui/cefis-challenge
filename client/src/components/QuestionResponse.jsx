@@ -6,7 +6,7 @@ export function QuestionResponse({questionId}){
 
     useEffect(()=>{
         const fetchData = async () => {
-            const answerResponse = await fetch(`http://localhost:3000/answer/${questionId}`);
+            const answerResponse = await fetch(`https://cefis-challenge.onrender.com/answer/${questionId}`);
             const answer = await answerResponse.json();
             setAnswerData(answer[0]);  
         };

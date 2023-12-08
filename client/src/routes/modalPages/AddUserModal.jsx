@@ -17,7 +17,7 @@ export function AddUserModal({editMode}) {
         const formJson = Object.fromEntries(formData.entries());
     
         if(editMode){
-            const putResponse = await fetch(`http://localhost:3000/user/${userId}`, {
+            const putResponse = await fetch(`https://cefis-challenge.onrender.com/user/${userId}`, {
                 method: 'PUT',
                 headers: {"Content-Type":"application/json"},
                 body: JSON.stringify({
@@ -32,7 +32,7 @@ export function AddUserModal({editMode}) {
               }
         }
         else{
-            const postResponse = await fetch('http://localhost:3000/user', {
+            const postResponse = await fetch('https://cefis-challenge.onrender.com/user', {
                 method: 'POST',
                 headers: {"Content-Type":"application/json"},
                 body: JSON.stringify({

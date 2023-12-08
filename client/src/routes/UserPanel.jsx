@@ -14,7 +14,7 @@ export function UserPanel(){
 
     useEffect(()=>{
         const fetchData = async() => {
-            const usersResponse = await fetch('http://localhost:3000/user');
+            const usersResponse = await fetch('https://cefis-challenge.onrender.com/user');
             const usersData = await usersResponse.json();
             setUsersData(usersData);
         }

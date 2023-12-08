@@ -17,11 +17,11 @@ export function CourseDetailPage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const courseResponse = await fetch(`http://localhost:3000/course/${courseId}`);
+        const courseResponse = await fetch(`https://cefis-challenge.onrender.com/course/${courseId}`);
         const courseData = await courseResponse.json();
         setCourseData(courseData[0]);
 
-        const questionResponse = await fetch(`http://localhost:3000/question/course/${courseId}`);
+        const questionResponse = await fetch(`https://cefis-challenge.onrender.com/question/course/${courseId}`);
         const courseQuestions = await questionResponse.json();
         setCourseQuestions(courseQuestions);
       } catch (error) {
@@ -40,7 +40,7 @@ export function CourseDetailPage() {
     const formJson = Object.fromEntries(formData.entries());
     const studentId = sessionStorage.getItem('loggedUser');
 
-    const postResponse = await fetch('http://localhost:3000/question', {
+    const postResponse = await fetch('https://cefis-challenge.onrender.com/question', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

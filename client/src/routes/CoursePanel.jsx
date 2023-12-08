@@ -11,7 +11,7 @@ export function CoursePanel(){
     const [coursesData, setCoursesData]= useState();
     useEffect(()=>{
         const fetchData = async()=>{
-            const coursesResponse = await fetch('http://localhost:3000/course');
+            const coursesResponse = await fetch('https://cefis-challenge.onrender.com/course');
             const coursesData = await coursesResponse.json();
             setCoursesData(coursesData);
 

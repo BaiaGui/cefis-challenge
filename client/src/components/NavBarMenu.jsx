@@ -7,7 +7,7 @@ export function NavBarMenu(){
     let userType;
 
     useEffect(()=>{
-        fetch(`http://localhost:3000/user/${userId}`)
+        fetch(`https://cefis-challenge.onrender.com/user/${userId}`)
         .then(res => res.json())
         .then(data => {
           setUserData(data[0]);
