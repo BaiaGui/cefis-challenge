@@ -1,5 +1,5 @@
 # cefis-challenge
-Este projeto consiste em uma versão simplificada de uma LPX LXP (Learning Experience Platform). O projeto foi construido em Reac e Node Js para o deafio tech da CEFIS.
+Este projeto consiste em uma versão simplificada de uma LPX (Learning Experience Platform). O projeto foi construido em Reac e Node Js para o deafio tech da CEFIS.
 
 ## ⭐ Como acessar?
 Para acessar a plataforma utilize o seguinte link: https://cefis-client.onrender.com
