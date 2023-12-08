@@ -50,7 +50,7 @@ router.post("/", async(req, res)=> {
             })
             res.status(200).json({message:`Question registered successfully`});
         } catch (error) {
-            res.status(500).json({message:`Question registration failed`});
+            res.status(500).json({message:`Question registration failed - ${error}`});
             console.log(error);
         }
 })

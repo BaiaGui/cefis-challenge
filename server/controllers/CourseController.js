@@ -5,6 +5,7 @@ class CourseController{
     //POST
     async createCourse(courseData){
         const id = randomUUID();
+        console.log(`INSERT INTO course (id, title, duration, teacher_id) VALUES (${id}, ${courseData.title}, ${courseData.duration}, ${courseData.teacherId}) `)
         await sql`INSERT INTO course (id, title, duration, teacher_id) VALUES (${id}, ${courseData.title}, ${courseData.duration}, ${courseData.teacherId}) `;
     }
 

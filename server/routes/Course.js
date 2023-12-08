@@ -31,6 +31,7 @@ router.get('/:id', async(req, res)=>{
 router.post('/', async(req, res)=> {
     try {
         const {title, duration, teacherId} = req.body;
+        console.log(req.body)
         await CourseController.createCourse({
             title,
             duration,

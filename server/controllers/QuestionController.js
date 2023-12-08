@@ -6,8 +6,14 @@ class QuestionController{
     //POST
 
     async createQuestion(questionData){
-        const id = randomUUID();
+        const studentQuestion = await sql`SELECT * FROM question WHERE student_id = ${questionData.studentId}
+                                            AND course_id = ${questionData.courseId}`;
+        if(studentQuestion.length >= 2 ){
+            throw new Error('User question limit reached');
+        }else{
+            const id = randomUUID();
         await sql`INSERT INTO question (id, course_id, student_id, text) VALUES (${id}, ${questionData.courseId}, ${questionData.studentId}, ${questionData.text})`;
+        }
     }
 
     //GET
