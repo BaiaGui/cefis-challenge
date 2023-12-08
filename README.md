@@ -28,5 +28,5 @@ Cada linha da tabela possui ícones de edição (ícone do lápis) e exclusão (
 
 ### Respondendo Perguntas
 A página de perguntas do painel admin exibe todas as perguntas feitas para o professor que está logado. Clique em uma pergunta e digite a resposta no campo de texto do modal para responder.
-
-
+<br><br>
+_Obs: As respostas da API podem demorar um pouco mais que o normal por motivos de distância do servidor e limitação de tempo de hosting do plano gratuito do Render._
