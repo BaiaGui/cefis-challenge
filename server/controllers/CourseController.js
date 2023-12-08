@@ -11,13 +11,18 @@ class CourseController{
     //GET
     async getAllCourses(){
         let courses;
-        courses = await sql`SELECT * FROM course`;
+        courses = await sql`SELECT course.id, course.title, course.duration, course.teacher_id, userdata.name teacher_name 
+                            FROM course
+                            JOIN userdata ON course.teacher_id = userdata.id`;
         return courses;
     }
 
     async getCourseById(id){
         let courses;
-        courses = await sql`SELECT * FROM course WHERE id = ${id}`;
+        courses = await sql`SELECT course.id, course.title, course.duration, course.teacher_id, userdata.name teacher_name 
+                            FROM course
+                            JOIN userdata ON course.teacher_id = userdata.id 
+                            WHERE course.id = ${id}`;
         return courses;
     }
 

@@ -15,6 +15,19 @@ router.get("/course/:courseId", async(req, res)=> {
     }
 })
 
+router.get("/:id", async(req, res)=> {
+    try {
+        const id = req.params.id;
+        let question;
+        question = await QuestionController.getQuestionById(id);
+        res.status(200).json(question);
+
+    } catch (error) {
+        res.status(500).json({message:`Error getting questions`});
+        console.log(error);
+    }
+})
+
 router.get("/teacher/:teacherId", async(req, res)=> {
     try {
         const teacherId = req.params.teacherId;

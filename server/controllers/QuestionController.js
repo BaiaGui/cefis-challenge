@@ -12,16 +12,25 @@ class QuestionController{
 
     //GET
     async getQuestionsByCourseId(courseId){
-        console.log(`SELECT * FROM question WHERE course_id = ${courseId}`);
         let question;
         question = await sql`SELECT * FROM question WHERE course_id = ${courseId}`;
         return question;
     }
 
+    async getQuestionById(id){
+        let question;
+        question = await sql`SELECT q.id, q.text, c.title course_title, u.name student_name FROM question q
+                             JOIN course c ON q.course_id = c.id
+                             JOIN userdata u ON q.student_id = u.id
+                             WHERE q.id = ${id}`;
+        return question;
+    }
+
     async getQuestionsByTeacherId(teacherId){
         let question;
-        question = await sql`SELECT * FROM question q 
+        question = await sql`SELECT q.id, q.student_id, q.text, c.title courseTitle FROM question q 
                             JOIN course c ON q.course_id = c.id
+                            JOIN userdata u ON c.teacher_id = u.id
                             WHERE c.teacher_id = ${teacherId}`;
         return question;
     }

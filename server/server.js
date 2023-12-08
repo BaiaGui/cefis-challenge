@@ -1,13 +1,16 @@
 const express = require('express');
-const app = express ();
+const app = express();
+const path = require('path');
+var cors = require('cors');
+
+app.use(cors());
 app.use(express.json());
-
-const PORT = 3000;
-
+const port = process.env.PORT || 3000;
 
 
-app.listen(PORT, () => {
-    console.log("Server Listening on PORT:", PORT);
+app.use(express.static(path.join(__dirname, '../client/dist/')));
+app.listen(port, () => {
+    console.log("Server Listening on PORT:", port);
   });
 
 const userRoute = require('./routes/User');
@@ -18,3 +21,7 @@ app.use('/user', userRoute);
 app.use('/question', questionRoute);
 app.use('/answer', answerRoute);
 app.use('/course', courseRoute);
+
+app.get('/', (req, res)=>{
+  res.sendFile(path.join(__dirname, '../client/dist/index.html'));
+})
