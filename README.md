@@ -2,7 +2,8 @@
 Este projeto consiste em uma versão simplificada de uma LPX (Learning Experience Platform). O projeto foi construido em React e Node Js para o desafio tech da CEFIS.
 
 ## ⭐ Como acessar?
-Para acessar a plataforma utilize o seguinte link: https://cefis-client.onrender.com
+Para acessar a plataforma utilize: https://cefis-client.onrender.com
+Para acessar a documentação da API utilize: https://cefis-client.onrender.com/apidoc
 
 ### Login
 O login é feito através da escolha de usuário. Selecione o tipo e o nome do usuário que deseja logar e clique em "Entrar".
