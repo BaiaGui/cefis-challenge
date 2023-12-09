@@ -10,6 +10,7 @@ import { AnswerQuestionModal } from './routes/modalPages/AnswerQuestionModal.jsx
 import { AddUserModal } from './routes/modalPages/AddUserModal.jsx'
 import { AddCourseModal } from './routes/modalPages/AddCourseModal.jsx'
 import { CourseDetailPage } from './routes/CourseDetailPage.jsx'
+import { ApiDoc } from './routes/ApiDoc.jsx'
 
 const router = createBrowserRouter([
   {
@@ -57,6 +58,10 @@ const router = createBrowserRouter([
         element: <AnswerQuestionModal/>,
       }
     ]
+  },
+  {
+    path: "/apidoc",
+    element: <ApiDoc/>
   }
 ])
 
